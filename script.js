@@ -91,8 +91,8 @@ const worksData = {
         category: "海报设计",
         description: "视觉冲击力强的公益海报，呼吁保护地球环境。采用对比手法突出环境问题，引发观者思考。",
         images: [
-            "images/海洋1.jpg", "images/海洋2.jpg", "images/海洋3.jpg",
-            "images/海洋4.jpg", "images/海洋5.jpg", "images/海洋6.jpg"
+            "images/hai1.jpg", "images/hai2.jpg", "images/hai3.jpg",
+            "images/hai4.jpg", "images/hai5.jpg", "images/hai6.jpg"
         ],
         features: ["信息传达清晰", "视觉冲击力强", "情感共鸣", "多尺寸适配"],
         tools: ["Illustrator", "Photoshop", "After Effects"]
@@ -102,7 +102,7 @@ const worksData = {
         category: "海报设计",
         description: "清风润初心，廉洁守底线。",
         images: [
-            "images/廉政1.jpg", "images/廉政2.jpg", "images/廉政3.jpg",
+            "images/lian1.jpg", "images/lian2.jpg", "images/lian3.jpg",
             "images/poster2-4.jpg", "images/poster2-5.jpg", "images/poster2-6.jpg"
         ],
         features: ["动感视觉表现", "色彩鲜明活跃", "活动信息突出", "吸引年轻群体"],
@@ -113,7 +113,7 @@ const worksData = {
         category: "海报设计",
         description: "一朝发祥地，两代帝王都，漫步方城触摸盛京古韵。",
         images: [
-            "images/沈阳1.jpg", "images/沈阳2.jpg", "images/沈阳33.jpg",
+            "images/shen1.jpg", "images/shen2.jpg", "images/shen3.jpg",
             "images/poster3-4.jpg", "images/poster3-5.jpg", "images/poster3-6.jpg"
         ],
         features: ["氛围营造突出", "光影对比强烈", "叙事性构图"],
