@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品展示 - 夏昕怡作品集</title>
+    <!-- 外部样式表 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- JavaScript文件 -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- 云朵背景容器 -->
+    <div class="clouds-container">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        <div class="cloud cloud4"></div>
+        <div class="cloud cloud5"></div>
+    </div>
+    <!-- 固定导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="works.html" class="active">作品展示</a></li>
+            <li><a href="about.html">关于我</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- 页面头部 -->
+        <header>
+            <h1>作品展示</h1>
+            <p>浏览我的设计作品</p>
+        </header>
+
+        <!-- 作品页主内容区 -->
+        <main>
+            <!-- 作品分类筛选区 -->
+            <section id="category-filter">
+                <h2>按分类浏览</h2>
+                <div class="category-filter">
+                    <button data-category="all">全部</button>
+                    <button data-category="ui">交互UI设计</button>
+                    <button data-category="visual">商业视觉设计</button>
+                    <button data-category="3d">三维IP设计</button>
+                    <button data-category="2d">二维设计</button>
+                    <button data-category="poster">海报设计</button>
+                    <button data-category="product">工业产品设计</button>
+                </div>
+                <p>（筛选功能待后续实现）</p>
+            </section>
+
+            <!-- 作品展示区 -->
+            <section id="works-display">
+                <h2>所有作品</h2>
+                <p>此处将按分类展示作品图片。每个作品包含图片、标题、简短描述。</p>
+
+                <!-- 交互UI设计作品 -->
+                <div class="works-category">
+                    <h3>交互UI设计</h3>
+                    <div class="works-grid">
+                        <div class="work-item" data-work-id="1" data-category="ui">
+                            <div class="work-image">
+                                <p>作品图片占位</p>
+                            </div>
+                            <h4>移动端健康应用界面</h4>
+                            <p>简约风格的医疗健康应用，注重用户体验与视觉美感。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 商业视觉设计作品 -->
+                <div class="works-category">
+                    <h3>商业视觉设计</h3>
+                    <div class="works-grid">
+                        <div class="work-item" data-work-id="2" data-category="visual">
+                            <div class="work-image">
+                                <p>作品图片占位</p>
+                            </div>
+                            <h4>有机食品品牌视觉系统</h4>
+                            <p>完整的品牌视觉识别设计，包含LOGO、VI手册和宣传物料。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 三维IP设计作品 -->
+                <div class="works-category">
+                    <h3>三维IP设计</h3>
+                    <div class="works-grid">
+                        <div class="work-item" data-work-id="3" data-category="3d">
+                            <div class="work-image">
+                                <p>作品图片占位</p>
+                            </div>
+                            <h4>可爱动物角色设计</h4>
+                            <p>原创三维卡通角色设计，用于儿童教育应用IP形象。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 二维设计作品 -->
+                <div class="works-category">
+                    <h3>二维设计</h3>
+                    <div class="works-grid">
+                        <div class="work-item" data-work-id="4" data-category="2d">
+                            <div class="work-image">
+                                <p>作品图片占位</p>
+                            </div>
+                            <h4>自然主题插画系列</h4>
+                            <p>手绘风格的数字插画，展现自然风景与生态和谐。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 海报设计作品 -->
+                <div class="works-category">
+                    <h3>海报设计</h3>
+                    <div class="works-grid">
+                        <div class="work-item" data-work-id="5" data-category="poster">
+                            <div class="work-image">
+                                <p>作品图片占位</p>
+                            </div>
+                            <h4>环保主题公益海报</h4>
+                            <p>视觉冲击力强的公益海报，呼吁保护地球环境。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 工业产品设计作品 -->
+                <div class="works-category">
+                    <h3>工业产品设计</h3>
+                    <div class="works-grid">
+                        <div class="work-item" data-work-id="6" data-category="product">
+                            <div class="work-image">
+                                <p>作品图片占位</p>
+                            </div>
+                            <h4>智能家居控制器设计</h4>
+                            <p>人性化的智能家居控制面板，结合美学与实用功能。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer>
+            <p>© 2026 夏昕怡 作品集 | 用于校招展示</p>
+            <p>联系方式：待补充 | 邮箱：待补充</p>
+        </footer>
+
+       <!-- 作品详情弹窗（带轮播） -->
+<div class="modal-overlay" id="workModal">
+    <div class="modal-container">
+        <button class="modal-close" aria-label="关闭弹窗">&times;</button>
+        <div class="modal-content">
+            <div class="modal-image">
+                <div class="work-carousel">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- 轮播图会通过JS动态生成 -->
+                    </div>
+                    <button class="carousel-prev">‹</button>
+                    <button class="carousel-next">›</button>
+                </div>
+            </div>
+            <div class="modal-info">
+                <h2 id="modalTitle">作品标题</h2>
+                <p class="modal-category" id="modalCategory">作品分类</p>
+                <div class="modal-description" id="modalDescription">
+                    <p>作品详细描述文字将显示在这里。</p>
+                </div>
+                <div class="modal-details">
+                    <h3>设计要点</h3>
+                    <ul id="modalFeatures">
+                        <li>用户中心设计</li>
+                        <li>响应式布局</li>
+                        <li>视觉层次清晰</li>
+                    </ul>
+                    <h3>工具与技术</h3>
+                    <ul id="modalTools">
+                        <li>Figma</li>
+                        <li>Adobe Creative Suite</li>
+                        <li>HTML/CSS/JavaScript</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" aria-label="回到顶部">
+        ↑
+    </button>
+</body>
+</html>

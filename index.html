@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏昕怡 - 个人作品集</title>
+    <!-- 外部样式表 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- JavaScript文件 -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- 云朵背景容器 -->
+    <div class="clouds-container">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        <div class="cloud cloud4"></div>
+        <div class="cloud cloud5"></div>
+    </div>
+    <!-- 固定导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">首页</a></li>
+            <li><a href="works.html">作品展示</a></li>
+            <li><a href="about.html">关于我</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- 页面头部 -->
+        <header>
+            <h1>夏昕怡作品集</h1>
+            <p>交互设计师 | 视觉设计师 | 三维IP设计师</p>
+        </header>
+
+        <!-- 首页主内容区 -->
+        <main>
+            <!-- 英雄展示区 -->
+            <section id="hero">
+                <h2>欢迎来到我的作品集</h2>
+                <p>这里展示了我在校期间及实践中的设计作品，涵盖交互UI、商业视觉、三维IP、二维设计、海报设计、工业产品等多个领域。</p>
+                <p>我具备工科研究背景和艺术审美素养，感谢赏识。</p>
+            </section>
+
+            <!-- 轮播图展示区 -->
+            <section id="carousel">
+                <img src="images/6.jpg" alt="交互UI设计" class="category-image">
+                <h2><img>交互UI设计</h2>
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- 轮播图项 -->
+                        <div class="carousel-slide active">
+                            <div class="carousel-image">
+                                <p>10.1.jpg</p>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3>交互UI设计作品</h3>
+                                <p>移动端应用界面设计，注重用户体验与视觉美感</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="carousel-image">
+                                <p>9.1.jpg</p>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3>商业视觉设计</h3>
+                                <p>品牌视觉识别系统设计，传达品牌核心价值</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="carousel-image">
+                                <p>43.jpg</p>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3>10.6.jpg</h3>
+                                <p>原创三维角色设计，展现创意与建模能力</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 轮播图导航按钮 -->
+                    <button class="carousel-btn prev-btn" aria-label="上一张">
+                        &lt;
+                    </button>
+                    <button class="carousel-btn next-btn" aria-label="下一张">
+                        &gt;
+                    </button>
+
+                    <!-- 轮播图指示点 -->
+                    <div class="carousel-dots">
+                        <button class="carousel-dot active" data-slide="0" aria-label="跳转到第1张"></button>
+                        <button class="carousel-dot" data-slide="1" aria-label="跳转到第2张"></button>
+                        <button class="carousel-dot" data-slide="2" aria-label="跳转到第3张"></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 作品分类预览区 -->
+            <section id="category-preview">
+                <h2>作品分类</h2>
+                <div class="category-grid">
+                    <!-- 交互UI设计 -->
+                    <div class="category-item">
+                        <h3>交互UI设计</h3>
+                        <p>移动端、网页端交互界面设计</p>
+                    </div>
+                    <!-- 商业视觉设计 -->
+                    <div class="category-item">
+                        <h3>商业视觉设计</h3>
+                        <p>品牌视觉、平面广告等</p>
+                    </div>
+                    <!-- 三维IP设计 -->
+                    <div class="category-item">
+                        <h3>三维IP设计</h3>
+                        <p>三维角色、IP形象设计</p>
+                    </div>
+                    <!-- 二维设计 -->
+                    <div class="category-item">
+                        <h3>二维设计</h3>
+                        <p>插画、图形设计等</p>
+                    </div>
+                    <!-- 海报设计 -->
+                    <div class="category-item">
+                        <h3>海报设计</h3>
+                        <p>活动、宣传海报</p>
+                    </div>
+                    <!-- 工业产品设计 -->
+                    <div class="category-item">
+                        <h3>工业产品设计</h3>
+                        <p>产品造型、结构设计</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 最新作品展示区 -->
+            <section id="latest-works">
+                <h2>35.jpg</h2>
+                <p>此处将展示最新上传的作品图片。</p>
+                <div class="work-placeholder">
+                    <p>作品图片占位区</p>
+                </div>
+            </section>
+        </main>
+
+       
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" aria-label="回到顶部">
+        ↑
+    </button>
+</body>
+</html><footer style="text-align: center;">
+    <p>© 2026 夏昕怡 作品集 | 用于校招展示</p>
+    <p>联系方式：待补充 | 邮箱：待补充</p>
+</footer>

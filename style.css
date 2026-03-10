@@ -1,0 +1,1266 @@
+/* 作品集网站主样式 */
+/* 主色调: #FBF1D7 (浅米色) 和 #73AE52 (绿色) */
+
+/* === 基础重置与全局样式 === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    /* 动态绿色纹理背景（替换原黄色背景） */
+    background: linear-gradient(120deg, #f5f9f0 0%, #eaf6ea 100%);
+    background-size: 400% 400%;
+    animation: bgFlow 25s ease infinite;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* 动态颗粒纹理层 */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.35' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' fill='%2381c784' opacity='0.03'/%3E%3C/svg%3E");
+    animation: noiseFloat 15s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* 动态光斑层 */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(139, 195, 74, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 70% 80%, rgba(76, 175, 80, 0.04) 0%, transparent 40%);
+    animation: lightMove 30s ease infinite alternate;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* === 导航栏样式 === */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(251, 241, 215, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    padding: 15px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+nav.scrolled {
+    background-color: rgba(115, 174, 82, 0.95);
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a:hover {
+    color: #73AE52;
+    background-color: rgba(115, 174, 82, 0.1);
+}
+
+nav a.active {
+    color: #73AE52;
+}
+
+nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background-color: #73AE52;
+}
+
+nav.scrolled a {
+    color: #FBF1D7;
+}
+
+nav.scrolled a:hover {
+    color: #FFF;
+    background-color: rgba(251, 241, 215, 0.2);
+}
+
+nav.scrolled a.active {
+    color: #FFF;
+}
+
+nav.scrolled a.active::after {
+    background-color: #FBF1D7;
+}
+
+/* === 头部样式 === */
+header {
+    text-align: center;
+    padding: 100px 0 50px;
+    margin-top: 60px;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #73AE52;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* === 主内容区 === */
+main {
+    padding: 40px 0;
+}
+
+section {
+    margin-bottom: 60px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    color: #73AE52;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(115, 174, 82, 0.2);
+}
+
+h3 {
+    color: #555;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+h4 {
+    color: #333;
+    font-size: 1.2rem;
+    margin: 15px 0 10px;
+}
+
+/* 英雄区域样式 */
+#hero {
+    text-align: center;
+    padding: 40px 30px;
+    background-color: rgba(115, 174, 82, 0.1);
+    border: 2px solid rgba(115, 174, 82, 0.2);
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        #e8f5e9 0%,
+        #e8f3c8 30%,
+        #c9f4ca 60%,
+        #dce6b7 80%
+    );
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+    z-index: -1;
+}
+
+#hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(76, 175, 80, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(129, 207, 132, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 40% 40%, rgba(102, 187, 106, 0.08) 0%, transparent 30%);
+    animation: lightFloat 20s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#hero h2, #hero p {
+    position: relative;
+    z-index: 1;
+}
+
+#hero h2 {
+    color: #73AE52;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 15px;
+    color: #555;
+}
+
+/* === 作品分类网格 === */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.category-item {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(115, 174, 82, 0.1);
+}
+
+.category-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(115, 174, 82, 0.15);
+    border-color: #73AE52;
+}
+
+/* === 作品卡片样式 === */
+.works-category {
+    margin-bottom: 50px;
+}
+
+.works-category h3 {
+    color: #73AE52;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(115, 174, 82, 0.2);
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.work-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(115, 174, 82, 0.1);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.work-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #73AE52;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(115, 174, 82, 0.2);
+    z-index: 10;
+}
+
+.work-item:hover::before {
+    transform: scaleX(1);
+}
+
+.work-item p {
+    color: #777;
+    margin: 10px 0;
+    font-size: 0.95rem;
+}
+
+.work-placeholder {
+    background-color: rgba(115, 174, 82, 0.1);
+    border: 2px dashed #73AE52;
+    border-radius: 8px;
+    padding: 60px 20px;
+    text-align: center;
+    color: #73AE52;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+/* === 关于页面样式 === */
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.about-image div {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto;
+    background-color: rgba(115, 174, 82, 0.1);
+    border: 2px dashed #73AE52;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #73AE52;
+    font-weight: 600;
+}
+
+.skills-list, .education-list, .experience-list {
+    margin-top: 25px;
+}
+
+.skills-list ul, .education-list ul, .experience-list ul, section#contact ul {
+    list-style-type: none;
+    padding-left: 2.5em;
+    margin-left: 0;
+}
+
+.skills-list li, .education-list li, .experience-list li, section#contact li {
+    margin-bottom: 12px;
+    padding-left: 0;
+    line-height: 1.6;
+    position: relative;
+}
+
+.skills-list li::before, .education-list li::before, .experience-list li::before, section#contact li::before {
+    content: "•";
+    color: #73AE52;
+    font-size: 1.4em;
+    position: absolute;
+    left: 0.8em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* === 按钮样式 === */
+button {
+    background-color: #73AE52;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #5d8e42;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(115, 174, 82, 0.3);
+}
+
+button.active {
+    background-color: #5d8e42;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(115, 174, 82, 0.4);
+}
+
+.category-filter {
+    margin: 25px 0;
+    text-align: center;
+}
+
+.category-filter button {
+    margin: 5px;
+}
+
+/* === 轮播图样式 === */
+#carousel {
+    margin-bottom: 60px;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    display: none;
+    flex-direction: column;
+    background-color: white;
+}
+
+.carousel-slide.active {
+    display: flex;
+}
+
+.carousel-image {
+    height: 400px;
+    background-color: rgba(115, 174, 82, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #73AE52;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding: 40px;
+}
+
+.carousel-caption {
+    padding: 25px;
+    text-align: center;
+    background-color: white;
+}
+
+.carousel-caption h3 {
+    color: #73AE52;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.carousel-caption p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(115, 174, 82, 0.8);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(115, 174, 82, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.carousel-dot.active {
+    background-color: white;
+    transform: scale(1.3);
+}
+
+.carousel-dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* === 作品详情弹窗样式 === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-container {
+    background-color: white;
+    border-radius: 15px;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #73AE52;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background-color: #5d8e42;
+    transform: rotate(90deg);
+}
+
+/* === 作品详情弹窗样式 === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-container {
+    background-color: white;
+    border-radius: 15px;
+    max-width: 900px; /* 加宽弹窗，让图片更大 */
+    width: 95%;      /* 适配屏幕 */
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #73AE52;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background-color: #5d8e42;
+    transform: rotate(90deg);
+}
+
+/* 核心修改：将 grid 从 1fr 1fr 改为 1fr（上下布局），并增加图片高度 */
+.modal-content {
+    display: grid;
+    grid-template-columns: 1fr; /* 改为单列，实现上下布局 */
+    gap: 2rem;
+}
+
+/* 作品轮播核心样式（弹窗内）- 增大高度 */
+.work-carousel {
+    position: relative;
+    width: 100%;
+    height: 500px; /* 图片高度从400改到500，更大 */
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f5f9f0;
+    margin-bottom: 1rem;
+}
+
+/* 作品轮播核心样式（弹窗内） */
+.work-carousel {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f5f9f0;
+    margin-bottom: 1rem;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.carousel-prev { left: 16px; }
+.carousel-next { right: 16px; }
+
+.modal-info h2 {
+    color: #73AE52;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    border-bottom: none;
+}
+
+.modal-category {
+    color: #666;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 6px 15px;
+    background-color: rgba(115, 174, 82, 0.1);
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.modal-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.modal-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.modal-details h3 {
+    color: #73AE52;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.modal-details ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.modal-details li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(115, 174, 82, 0.1);
+    color: #666;
+    position: relative;
+    padding-left: 20px;
+}
+
+.modal-details li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #73AE52;
+    font-weight: bold;
+}
+
+/* === 回到顶部按钮样式 === */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #73AE52;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(115, 174, 82, 0.4);
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    display: flex;
+}
+
+.back-to-top:hover {
+    background-color: #5d8e42;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(115, 174, 82, 0.5);
+}
+
+/* === 动画关键帧 === */
+@keyframes bgFlow {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+@keyframes noiseFloat {
+    0%, 100% { transform: translate(0px, 0px); }
+    25% { transform: translate(2px, 2px); }
+    50% { transform: translate(0px, -2px); }
+    75% { transform: translate(-2px, 0px); }
+}
+
+@keyframes lightMove {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes lightFloat {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+/* 云朵漂浮动画 */
+@keyframes cloudFloat {
+    0% { transform: translateX(-100px) translateY(0); }
+    50% { transform: translateX(calc(100vw + 100px)) translateY(-20px); }
+    100% { transform: translateX(-100px) translateY(0); }
+}
+
+@keyframes cloudFloatSlow {
+    0% { transform: translateX(-150px) translateY(30px); }
+    50% { transform: translateX(calc(100vw + 150px)) translateY(10px); }
+    100% { transform: translateX(-150px) translateY(30px); }
+}
+
+@keyframes cloudFloatVerySlow {
+    0% { transform: translateX(-200px) translateY(60px); }
+    50% { transform: translateX(calc(100vw + 200px)) translateY(40px); }
+    100% { transform: translateX(-200px) translateY(60px); }
+}
+
+/* === 响应式设计 === */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .category-grid, .works-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .carousel-image {
+        height: 350px;
+        font-size: 1.3rem;
+    }
+
+    .carousel-caption {
+        padding: 20px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 1.6rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    nav {
+        padding: 12px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 8px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px;
+        width: 100%;
+    }
+
+    header {
+        padding: 80px 0 30px;
+        margin-top: 100px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .category-grid, .works-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-text, .about-image {
+        min-width: 100%;
+    }
+
+    section {
+        padding: 20px;
+        margin-bottom: 40px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    .carousel-image {
+        height: 250px;
+        font-size: 1.2rem;
+        padding: 20px;
+    }
+
+    .carousel-caption {
+        padding: 15px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 1.4rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.95rem;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .prev-btn {
+        left: 10px;
+    }
+
+    .next-btn {
+        right: 10px;
+    }
+
+    .carousel-dots {
+        bottom: 15px;
+    }
+
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .work-item:hover {
+        transform: scale(1.02);
+    }
+
+    /* 弹窗响应式 */
+    .modal-content {
+        grid-template-columns: 1fr;
+    }
+
+    .work-carousel {
+        height: 300px;
+    }
+
+    /* 列表响应式调整 */
+    .skills-list ul, .education-list ul, .experience-list ul, section#contact ul {
+        padding-left: 2em;
+    }
+
+    .skills-list li::before, .education-list li::before, .experience-list li::before, section#contact li::before {
+        left: 0.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    .category-item, .work-item {
+        padding: 15px;
+    }
+
+    .category-filter button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .carousel-image {
+        height: 200px;
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    .carousel-caption {
+        padding: 12px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 1.2rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.9rem;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .work-carousel {
+        height: 200px;
+    }
+
+    /* 列表响应式调整 - 小屏幕 */
+    .skills-list ul, .education-list ul, .experience-list ul, section#contact ul {
+        padding-left: 1.5em;
+    }
+
+    .skills-list li::before, .education-list li::before, .experience-list li::before, section#contact li::before {
+        left: 0.3em;
+    }
+}
+
+/* === 图片通用样式 === */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* === 云朵背景样式 === */
+.clouds-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.cloud {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0.7;
+}
+
+.cloud:before,
+.cloud:after {
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+}
+
+.cloud1 {
+    width: 120px;
+    height: 40px;
+    top: 15%;
+    animation: cloudFloat 60s linear infinite;
+}
+
+.cloud1:before {
+    width: 50px;
+    height: 50px;
+    top: -20px;
+    left: 15px;
+}
+
+.cloud1:after {
+    width: 70px;
+    height: 70px;
+    top: -30px;
+    right: 15px;
+}
+
+.cloud2 {
+    width: 150px;
+    height: 50px;
+    top: 40%;
+    animation: cloudFloatSlow 80s linear infinite;
+    animation-delay: -20s;
+}
+
+.cloud2:before {
+    width: 60px;
+    height: 60px;
+    top: -25px;
+    left: 20px;
+}
+
+.cloud2:after {
+    width: 80px;
+    height: 80px;
+    top: -35px;
+    right: 20px;
+}
+
+.cloud3 {
+    width: 100px;
+    height: 35px;
+    top: 70%;
+    animation: cloudFloatVerySlow 100s linear infinite;
+    animation-delay: -40s;
+}
+
+.cloud3:before {
+    width: 45px;
+    height: 45px;
+    top: -15px;
+    left: 10px;
+}
+
+.cloud3:after {
+    width: 55px;
+    height: 55px;
+    top: -20px;
+    right: 10px;
+}
+
+.cloud4 {
+    width: 90px;
+    height: 30px;
+    top: 25%;
+    animation: cloudFloat 70s linear infinite;
+    animation-delay: -10s;
+    opacity: 0.6;
+}
+
+.cloud4:before {
+    width: 40px;
+    height: 40px;
+    top: -15px;
+    left: 10px;
+}
+
+.cloud4:after {
+    width: 50px;
+    height: 50px;
+    top: -20px;
+    right: 10px;
+}
+
+.cloud5 {
+    width: 130px;
+    height: 45px;
+    top: 60%;
+    animation: cloudFloatSlow 90s linear infinite;
+    animation-delay: -30s;
+    opacity: 0.8;
+}
+
+.cloud5:before {
+    width: 55px;
+    height: 55px;
+    top: -20px;
+    left: 15px;
+}
+
+.cloud5:after {
+    width: 65px;
+    height: 65px;
+    top: -25px;
+    right: 15px;
+}
