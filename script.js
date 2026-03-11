@@ -55,7 +55,7 @@ const worksData = {
         description: "原创三维卡通角色设计，用于儿童教育应用IP形象。角色造型圆润可爱，色彩明亮，富有亲和力。",
         images: [
             "images/10.2.jpg", "images/10.3.jpg", "images/10.4.jpg",
-            "images/10.5.jpg", "images/Frame 17.jpg", "images/Frame 18.jpg"
+            "images/10.5.jpg", "images/Frame-17.jpg", "images/Frame-18.jpg"
         ],
         features: ["造型独特可爱", "色彩搭配和谐", "适合多角度展示", "易于衍生开发"],
         tools: ["Blender", "ZBrush", "Substance Painter"]
